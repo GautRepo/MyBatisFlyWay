@@ -26,4 +26,19 @@ public class StudentController {
     public ResponseEntity<List<StudentEntity>> getAllStudents(){
         return new ResponseEntity<>(service.getAllStudent(),HttpStatus.ACCEPTED);
     }
+
+    @GetMapping("/getStd/{id}")
+    public ResponseEntity<StudentEntity> getStudentById(@PathVariable Integer id){
+        return new ResponseEntity<>(service.getStudent(id),HttpStatus.ACCEPTED);
+    }
+
+    @PutMapping("/updateStd")
+    public ResponseEntity<Integer> updateStudent(@RequestBody StudentEntity studentEntity){
+        return new ResponseEntity<>(service.saveStudent(studentEntity),HttpStatus.OK);
+    }
+
+    @DeleteMapping("/deleteStd")
+    public ResponseEntity<String> deleteStd(@RequestParam("sid") Integer sid){
+        return new ResponseEntity<>(service.deleteStdById(sid),HttpStatus.GONE);
+    }
 }

@@ -18,6 +18,14 @@
         select sid,sname,sfee,sadd from student
     </select>
 
+    <select id="getStudent" resultMap="studentEntity">
+        select sid,sname,sfee,sadd from student where sid= #{sid}
+    </select>
+
+    <delete id="deleteById" parameterType="int">
+        delete from student where sid = #{sid}
+    </delete>
+
     <resultMap id="studentEntity" type="StudentEntity">
         <id column="sid" property="sid"/>
         <result column="sname" property="sname"/>
