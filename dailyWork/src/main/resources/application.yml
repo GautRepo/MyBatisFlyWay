@@ -1,0 +1,15 @@
+server:
+  port: 9090
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=core
+    username: postgres
+    password: password
+  flyway:
+    baselineOnMigrate: true
+
+mybatis:
+  mapper-locations: classpath:mybatis/*.xml
+  type-aliases-package: com.nt
+  type-handlers-package: com.nt.entity
+
